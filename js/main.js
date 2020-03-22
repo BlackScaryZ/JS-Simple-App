@@ -8,7 +8,7 @@ let actualseq = [];
 let isOn = false;
 let x;
 function moyenne(xxx) {
-    if(xxx === null) {
+    if(xxx === undefined) {
         newvalue = Number(document.getElementById("nombreentier").value);
     } else {
         newvalue = Number(xxx);
