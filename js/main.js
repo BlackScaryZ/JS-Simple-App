@@ -5,9 +5,14 @@ let lastmc = 0;
 let count = 0;
 let bigseq = [];
 let actualseq = [];
-function moyenne() {
-    newvalue = Number(document.getElementById("nombreentier").value);
-    //newvalue = Number(xxx);
+let isOn = false;
+let x;
+function moyenne(xxx) {
+    if(xxx === null) {
+        newvalue = Number(document.getElementById("nombreentier").value);
+    } else {
+        newvalue = Number(xxx);
+    }
     if(Number.isInteger(newvalue)== true) {
     allvalues.push(newvalue);
     const total = allvalues.reduce((a, b) => a + b);
@@ -31,10 +36,21 @@ function reset() {
 	lastvalue = 0;
 	lastmc = 0;
 	count = 0;
-  bigseq = [];
-  actualseq = [];
-    Array.from(document.querySelectorAll(".result")).forEach((rat) => rat.innerHTML = '0');  
+    bigseq = [];
+    actualseq = [];
+    isOn = false;
+    clearTimeout(x);
+    Array.from(document.querySelectorAll(".result")).forEach((rat) => rat.innerHTML = '0');
+    document.getElementById("auto").innerHTML = 'Activer le mode automatique';
 }
 function randomnumb() {
-    var x = setInterval(function(){ moyenne(Math.floor(Math.random() * 1000)) }, 1);
+    if(isOn) {
+        clearTimeout(x);
+        isOn = false;
+        document.getElementById("auto").innerHTML = 'Activer le mode automatique';
+    } else {
+        x = setInterval(function(){ moyenne(Math.floor(Math.random() * 100)) }, 100);
+        isOn = true;
+        document.getElementById("auto").innerHTML = 'Arrêter le mode automatique';
+    }
 }
