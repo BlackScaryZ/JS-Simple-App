@@ -22,7 +22,7 @@ function moyenne(xxx) {
     document.getElementById("value4").innerHTML = Math.min.apply(null, allvalues);
     document.getElementById("value5").innerHTML = total / allvalues.length;
     document.getElementById("value6").innerHTML = allvalues;
-    if(newvalue > lastvalue) {count = count + 1;actualseq.push(newvalue);} else {count = 1;actualseq = [newvalue];}
+    if(newvalue > lastvalue) {count++;actualseq.push(newvalue);} else {count = 1;actualseq = [newvalue];}
     if(count > lastmc) { lastmc = count;bigseq = actualseq; }
     document.getElementById("value7").innerHTML = bigseq;
     lastvalue = newvalue;
@@ -54,3 +54,4 @@ function randomnumb() {
         document.getElementById("auto").innerHTML = 'Arrêter le mode automatique';
     }
 }
+reset();
