@@ -54,4 +54,7 @@ function randomnumb() {
         document.getElementById("auto").innerHTML = 'Arrêter le mode automatique';
     }
 }
+<<<<<<< HEAD
 reset();
+=======
+>>>>>>> 71c5600fc8e0af42e6d290e9be6353ab52df4c03
